@@ -17,7 +17,9 @@ class EmployeesManager:
         self.emplst.append(emp)
         self.org.append([emp])
    
-
+    def delete_emp(self,sage,lage):
+        self.org=[snapshot for snapshot in self.org if snapshot[0].age not in range(sage,lage)]
+                
     
     def __str__(self):
         result=[]
@@ -37,9 +39,11 @@ while True:
     choosed=int(input())
     if choosed in range(1,6):
         if choosed==1:
-            emp.save_emps(input("Enter Employee Name: "),input("Enter Employee Age: "),input("Enter Employee Salary: "))
-        elif choosed in range(2,4):
-            print("out of services due to mantinance")
+            emp.save_emps(input("Enter Employee Name: "),int(input("Enter Employee Age: ")),int(input("Enter Employee Salary: ")))
+        
+        elif choosed==3:
+            emp.delete_emp(int(input("Enter the first of the range: ")),int(input("Enter the last of the range: ")))
+            
         elif choosed==4:
             print(str(emp))
         elif choosed==5:
