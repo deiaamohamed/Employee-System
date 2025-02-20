@@ -10,14 +10,21 @@ class EmployeesManager:
    
     def __init__(self):
         self.emplst=[]
+        self.org=[]
     
     def save_emps(self,name,age,salary):
         emp=Employee(name,age,salary)
         self.emplst.append(emp)
+        self.org.append([emp])
+   
 
     
     def __str__(self):
-        return "\n".join(str(emp) for emp in self.emplst)
+        result=[]
+        for lis in self.org:
+            snapshot="\n".join(str(emp) for emp in lis)
+            result.append(snapshot)
+        return "\n".join(result)
 
 emp=EmployeesManager()
 while True:
