@@ -14,6 +14,10 @@ class EmployeesManager:
     def save_emps(self,name,age,salary):
         emp=Employee(name,age,salary)
         self.emplst.append(emp)
+    
+    def find_employee_by_name(self,name):
+        search=[(the_name.name,the_name.age,the_name.Salary) for the_name in self.emplst if the_name.name==name]
+        return search
    
     def delete_emp(self,sage,lage):
         self.emplst=[snapshot for snapshot in self.emplst if snapshot.age not in range(sage,lage+1)]
@@ -36,9 +40,10 @@ while True:
       "(2) Update Salary Employee\n"
       "(3) Update Employee by age range\n"
       "(4) Show Employee Data Base\n"
-      "(5) End the Program\n")
+      "(5) find Employee by name\n"
+      "(6) End the Program\n")
     choosed=int(input())
-    if choosed in range(1,6):
+    if choosed in range(1,6+1):
         if choosed==1:
             emp.save_emps(input("Enter Employee Name: "),int(input("Enter Employee Age: ")),int(input("Enter Employee Salary: ")))
             print("Employee Added Successfully\n")
@@ -47,12 +52,14 @@ while True:
             print("Salary Changed Successfuly\n")
         elif choosed==3:
             emp.delete_emp(int(input("Enter the first of the range: ")),int(input("Enter the last of the range: ")))
-            
+        
         elif choosed==4:
             print(str(emp))
         elif choosed==5:
+            print(str(emp.find_employee_by_name(input("Enter Name: "))))
+        elif choosed==6:
             break
     else:
-        print("Invalid!, Choose between 1 to 5\n")
+        print("Invalid!, Choose between 1 to 6\n")
 
         
