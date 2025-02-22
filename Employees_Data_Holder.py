@@ -6,6 +6,8 @@ class Employee:
         self.Salary=Salary
     def __str__(self):
         return f"Name: {self.name} || Age: {self.age} || Salary: {self.Salary}"
+    
+
 class EmployeesManager:
    
     def __init__(self):
@@ -35,31 +37,46 @@ class EmployeesManager:
 
 emp=EmployeesManager()
 while True:
-    print("Program Options:\n"
-      "(1) Add Employee\n"
-      "(2) Update Salary Employee\n"
-      "(3) Update Employee by age range\n"
-      "(4) Show Employee Data Base\n"
-      "(5) find Employee by name\n"
-      "(6) End the Program\n")
+    message=["Program Options:",
+      "(1) Add Employee",
+      "(2) Update Salary Employee",
+      "(3) Update Employee by age range",
+      "(4) Show Employee Data Base",
+      "(5) find Employee by name",
+      "(6) End the Program"]
+    print("\n".join(message))
     choosed=int(input())
     if choosed in range(1,6+1):
         if choosed==1:
+            print(20*"#")
             emp.save_emps(input("Enter Employee Name: "),int(input("Enter Employee Age: ")),int(input("Enter Employee Salary: ")))
-            print("Employee Added Successfully\n")
+            print(20*"#")
+            print("-------------------------------")
+            print("|Employee was Added Successfully|")
+            print("-------------------------------\n")
+
         elif choosed==2:
+            print(20*"#")
             emp.update_salary_by_name(input("Enter the Name: "),int(input("Enter the New Salary: ")))
-            print("Salary Changed Successfuly\n")
+            print(20*"#")
+            print("-----------------------------")
+            print("|Salary Changed Successfuly|")
+            print("-----------------------------\n")
+
         elif choosed==3:
             emp.delete_emp(int(input("Enter the first of the range: ")),int(input("Enter the last of the range: ")))
         
         elif choosed==4:
             print(str(emp))
         elif choosed==5:
+            print(20*"#")
             print(str(emp.find_employee_by_name(input("Enter Name: "))))
+            print(20*"#")
         elif choosed==6:
             break
     else:
-        print("Invalid!, Choose between 1 to 6\n")
+        print("-------------------------------")
+        print("Invalid!, Choose between 1 to 6")
+        print("-------------------------------\n")
 
         
