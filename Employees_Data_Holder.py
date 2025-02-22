@@ -16,7 +16,7 @@ class EmployeesManager:
         self.emplst.append(emp)
    
     def delete_emp(self,sage,lage):
-        self.emplst=[snapshot for snapshot in self.emplst if snapshot.age not in range(sage,lage)]
+        self.emplst=[snapshot for snapshot in self.emplst if snapshot.age not in range(sage,lage+1)]
     
     def update_salary_by_age(self,name,salary):
         for item in self.emplst:
@@ -33,8 +33,8 @@ emp=EmployeesManager()
 while True:
     print("Program Options:\n"
       "(1) Add Employee\n"
-      "(2) Update Salary Employee(under test request)\n"
-      "(3) Update Employee by age range(under test request)\n"
+      "(2) Update Salary Employee\n"
+      "(3) Update Employee by age range\n"
       "(4) Show Employee Data Base\n"
       "(5) End the Program\n")
     choosed=int(input())
