@@ -18,7 +18,7 @@ class EmployeesManager:
     def delete_emp(self,sage,lage):
         self.emplst=[snapshot for snapshot in self.emplst if snapshot.age not in range(sage,lage+1)]
     
-    def update_salary_by_age(self,name,salary):
+    def update_salary_by_name(self,name,salary):
         for item in self.emplst:
             if name==item.name:
                 item.Salary=salary
@@ -43,7 +43,7 @@ while True:
             emp.save_emps(input("Enter Employee Name: "),int(input("Enter Employee Age: ")),int(input("Enter Employee Salary: ")))
             print("Employee Added Successfully\n")
         elif choosed==2:
-            emp.update_salary_by_age(input("Enter the Name: "),int(input("Enter the New Salary: ")))
+            emp.update_salary_by_name(input("Enter the Name: "),int(input("Enter the New Salary: ")))
             print("Salary Changed Successfuly\n")
         elif choosed==3:
             emp.delete_emp(int(input("Enter the first of the range: ")),int(input("Enter the last of the range: ")))
