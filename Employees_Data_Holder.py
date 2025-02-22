@@ -5,27 +5,24 @@ class Employee:
         self.age=Age
         self.Salary=Salary
     def __str__(self):
-        return f"Name: {self.name}, Age: {self.age}, Salary: {self.Salary}"
+        return f"Name: {self.name}|| Age: {self.age}|| Salary: {self.Salary}"
 class EmployeesManager:
    
     def __init__(self):
         self.emplst=[]
-        self.org=[]
     
     def save_emps(self,name,age,salary):
         emp=Employee(name,age,salary)
         self.emplst.append(emp)
-        self.org.append([emp])
    
     def delete_emp(self,sage,lage):
-        self.org=[snapshot for snapshot in self.org if snapshot[0].age not in range(sage,lage)]
+        self.emplst=[snapshot for snapshot in self.emplst if snapshot[0].age not in range(sage,lage)]
                 
     
     def __str__(self):
         result=[]
-        for lis in self.org:
-            snapshot="\n".join(str(emp) for emp in lis)
-            result.append(snapshot)
+        for snapshot in self.emplst:
+            result.append(str(snapshot))
         return "\n".join(result)
 
 emp=EmployeesManager()
